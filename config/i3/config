@@ -13,8 +13,8 @@ tiling_drag modifier titlebar
 default_border pixel 2
 default_floating_border pixel 2
 hide_edge_borders smart
-gaps inner 12
-gaps outer 4
+gaps inner 6
+gaps outer 10
 # Keep the same screen-edge spacing for split, tabbed and single windows.
 smart_gaps off
 smart_borders on
@@ -87,7 +87,7 @@ bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
-bindsym $mod+g gaps inner current toggle 12
+bindsym $mod+g gaps inner current toggle 6
 
 set $ws1 "1:home"
 set $ws2 "2:web"
