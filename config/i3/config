@@ -5,7 +5,9 @@ set $desktop python3 ~/.config/i3/autumn/desktop.py
 set $audio python3 ~/.config/i3/autumn/audio.py
 set $rofi rofi -config ~/.config/rofi/autumn.rasi
 
-font pango:DejaVu Sans 10
+# Same face and visual size as Polybar (10 pt there is rendered at the
+# screen's real DPI, ~108, while i3 uses Xft.dpi 96: 10 * 108 / 96 = 11.25).
+font pango:Fira Code Medium 11.25
 floating_modifier $mod
 tiling_drag modifier titlebar
 default_border pixel 2
