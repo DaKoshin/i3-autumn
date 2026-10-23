@@ -39,4 +39,4 @@ Debian 12 desktop bundle (i3 + Polybar + Rofi + Dunst + Picom 13). All user-faci
 
 When adding or renaming a config file, update the `FILES` allowlist in `scripts/install_config.py`, the file-presence loop in `install.sh`, and the tests (`restore` validates the allowlist, with a legacy set lacking `picom.conf`).
 
-When changing i3 bindings, keep the README key table in sync. `tests/` uses `unittest`; installer tests use stub apt/build commands and temp homes.
+When changing i3 bindings, keep the key tables in `README.md` and `README.uk.md` in sync. `tests/` uses `unittest`; installer tests use stub apt/build commands and temp homes.

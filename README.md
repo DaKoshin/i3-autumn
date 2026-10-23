@@ -1,136 +1,140 @@
 # Autumn — i3 + Polybar
 
-Темний осінній робочий стіл для Debian 12: теплі мідні акценти, туманний ліс, компактна панель, українські меню, зручний тайлінг і окреме керування виходом звуку та мікрофоном. Підготовлено для i3 4.22, Polybar 3.6.3, Rofi 1.7.3, PipeWire/PulseAudio, GNOME Terminal, xss-lock та i3lock.
+**English** · [Українська](README.uk.md)
 
-## Початок роботи
+![Autumn desktop preview](docs/screenshot.png)
 
-Увесь проєкт розміщений у `~/i3-autumn`. Єдиний установник:
+A dark autumn desktop for Debian 12: warm copper accents, a misty forest wallpaper, a compact bar, Ukrainian-language menus, comfortable tiling and separate control of the audio output and the microphone. Prepared for i3 4.22, Polybar 3.6.3, Rofi 1.7.3, PipeWire/PulseAudio, GNOME Terminal, xss-lock and i3lock. Windows are 15% translucent with a blurred background (Picom 13).
+
+> All user-facing text (menus, notifications, help) is in Ukrainian.
+
+## Getting started
+
+Clone the repository anywhere and run the only installer:
 
 ```sh
 cd ~/i3-autumn
 ./install.sh
 ```
 
-Запускайте від свого користувача. Скрипт сам викличе `sudo` для встановлення відсутніх пакетів Debian, збере офіційний Picom 13 від звичайного користувача й встановить конфігурації з резервною копією. Для завантаження пакетів і вихідного коду потрібен інтернет. Пароль вводьте лише в запиті `sudo` у своєму терміналі.
+Run it as your normal user. The script calls `sudo` itself to install missing Debian packages, builds the official Picom 13 as a regular user and installs the configuration with a backup. An internet connection is needed to download packages and source code. Enter your password only at the `sudo` prompt in your own terminal.
 
-Після встановлення збережіть роботу й вийдіть із GNOME звичайним способом. На екрані GDM виберіть користувача, у меню сесій із шестернею виберіть **i3** та увійдіть. Установник не завершує поточну сесію.
+After the installation, save your work and log out of GNOME in the usual way. On the GDM screen pick your user, choose **i3** in the session menu (the gear icon) and log in. The installer does not end the current session.
 
-Натисніть **Win+C**, щоб відкрити центр керування, або **Win+F1**, щоб переглянути клавіші. Кнопка **AUTUMN** на панелі також відкриває центр керування.
+Press **Win+C** to open the control centre or **Win+F1** to see the key bindings. The **AUTUMN** button on the bar also opens the control centre.
 
-## Клавіші
+## Key bindings
 
-| Комбінація | Дія |
+| Keys | Action |
 | --- | --- |
-| Ctrl+Пробіл | Повернення на попередню мову (як у macOS), також у режимі зміни розміру |
-| Ctrl+Alt+Пробіл | Мови по колу: EN → RU → UA → EN, також у режимі зміни розміру |
-| Win+Enter | Термінал |
-| Win+D / Win+Tab | Застосунки / відкриті вікна |
-| Win+C / Win+F1 | Центр керування / довідка |
-| Win+P | Меню звуку |
-| Win+Ctrl+P | Вихід звуку |
-| Win+Ctrl+Shift+P | Мікрофон |
-| Win+стрілки | Фокус вікна |
-| Win+Shift+стрілки | Перемістити вікно |
-| Win+H / Win+V | Горизонтальний / вертикальний поділ |
-| Win+W / Win+S / Win+E | Вкладки / стос / змінити напрям поділу |
-| Win+F | Повний екран |
-| Win+R, стрілки, Enter | Змінити розмір вікна |
-| Win+Shift+T / Win+T | Плаваюче вікно / фокус між плаваючими й плитками |
-| Win+G | Відступи між вікнами для поточного простору |
-| Win+1…8 | Робочі простори |
-| Win+Ctrl+1…8 | Надіслати вікно без переходу |
-| Win+Shift+1…8 | Надіслати вікно й перейти за ним |
-| Win+B | Попередній робочий простір |
-| Win+F12 | Висувний термінал |
-| Win+Shift+мінус / Win+мінус | Сховати в scratchpad / показати |
-| Win+Q | Закрити вікно |
-| Win+Ctrl+L | Заблокувати екран |
-| Win+Shift+E | Меню сесії: блокування, сон, вихід, GNOME, живлення |
-| Print | Виділити ділянку екрана у Flameshot |
-| Win+Shift+C / Win+Shift+R | Перечитати конфіг / перезапустити i3 зі збереженням вікон |
+| Ctrl+Space | Switch back to the previous language (like macOS), also in resize mode |
+| Ctrl+Alt+Space | Cycle languages: EN → RU → UA → EN, also in resize mode |
+| Win+Enter | Terminal |
+| Win+D / Win+Tab | Applications / open windows |
+| Win+C / Win+F1 | Control centre / help |
+| Win+P | Sound menu |
+| Win+Ctrl+P | Audio output |
+| Win+Ctrl+Shift+P | Microphone |
+| Win+arrows | Focus a window |
+| Win+Shift+arrows | Move a window |
+| Win+H / Win+V | Split horizontally / vertically |
+| Win+W / Win+S / Win+E | Tabbed / stacking / toggle split direction |
+| Win+F | Fullscreen |
+| Win+R, arrows, Enter | Resize a window |
+| Win+Shift+T / Win+T | Floating window / switch focus between floating and tiled |
+| Win+G | Gaps between windows for the current workspace |
+| Win+1…8 | Workspaces |
+| Win+Ctrl+1…8 | Send a window without following it |
+| Win+Shift+1…8 | Send a window and follow it |
+| Win+B | Previous workspace |
+| Win+F12 | Drop-down terminal |
+| Win+Shift+minus / Win+minus | Hide to the scratchpad / show |
+| Win+Q | Close a window |
+| Win+Ctrl+L | Lock the screen |
+| Win+Shift+E | Session menu: lock, sleep, log out, GNOME, power |
+| Print | Select a screen region in Flameshot |
+| Win+Shift+C / Win+Shift+R | Reload the config / restart i3 keeping windows |
 
-Вікна можна перетягувати мишею, утримуючи Win; правою кнопкою з Win змінюється розмір. Старі j/k/l/; для навігації залишені. Автоматичне викрадення фокуса терміновими вікнами прибрано. Зовнішній відступ становить 16 px у звичайному режимі, вкладках і для одного вікна; між сусідніми вікнами — 12 px. Повний екран займає весь екран.
+Windows can be dragged with the mouse while holding Win; the right button with Win resizes them. The old j/k/l/; navigation keys are kept. Urgent windows no longer steal focus automatically. The outer gap is 16 px in normal mode, in tabs and for a single window; the gap between neighbouring windows is 12 px. Fullscreen uses the whole screen.
 
-## Панель і звук
+## Bar and audio
 
-- **AUTUMN**: лівий клік — центр керування, правий — застосунки.
-- Номери просторів: клік — перейти; прокрутка — перемикання.
-- Дата: клік змінює формат відображення.
-- **NET** відкриває налаштування мережевих підключень; доступні Wi-Fi мережі — через системний трей NetworkManager.
-- **VOL**: лівий клік — вибір виходу; середній — mute; правий — повний мікшер; колесо — гучність із кроком 5%, максимум 100%.
-- **MIC**: лівий клік — вибір мікрофона; середній або правий — mute. ON означає, що мікрофон не заглушений, а не факт запису програмою.
-- **EN/RU/UA** показує поточну мову; змінювати її можна Ctrl+Пробіл (попередня мова), Ctrl+Alt+Пробіл (по колу) або кліком на індикатор.
-- **SESSION**: лівий клік — меню сесії, правий — довідка.
+- **AUTUMN**: left click — control centre, right click — applications.
+- Workspace numbers: click to switch; scroll to cycle.
+- Date: click to change the display format.
+- **NET** opens the network connection settings; available Wi-Fi networks are in the NetworkManager tray.
+- **VOL**: left click — choose output; middle click — mute; right click — full mixer; wheel — volume in 5% steps, up to 100%.
+- **MIC**: left click — choose microphone; middle or right click — mute. ON means the microphone is not muted, not that an application is recording.
+- **EN/RU/UA** shows the current language; change it with Ctrl+Space (previous language), Ctrl+Alt+Space (cycle) or by clicking the indicator.
+- **SESSION**: left click — session menu, right click — help.
 
-Вибір пристрою змінює типовий вихід/вхід і переносить уже активні потоки. Захоплення системного звуку через monitor-джерела залишається на місці. Скрипт не вмикає заглушений мікрофон автоматично. Профілі HDMI/аналогового аудіо та окремі застосунки налаштовуються через **повний мікшер**. Нове підключення, яке ще не створило аудіопристрій у PipeWire, спершу потрібно активувати там.
+Choosing a device changes the default output/input and moves the streams that are already active. Capturing system sound through monitor sources stays in place. The script never unmutes a muted microphone on its own. HDMI/analog profiles and per-application settings are handled in the **full mixer**. A new connection that has not yet created an audio device in PipeWire must be activated there first.
 
-Гучність, mute, мікрофон і зміна типового пристрою оновлюються за подіями `pactl subscribe`, включно зі змінами з іншого мікшера. Polybar читає потік через `tail = true`; трисекундного опитування більше немає. Однакові значення не друкуються повторно, події підключення службових клієнтів ігноруються. Після перезапуску звукового сервера підписка відновлюється.
+Volume, mute, microphone and default-device changes are updated from `pactl subscribe` events, including changes made from another mixer. Polybar reads the stream through `tail = true`; the three-second polling is gone. Identical values are not printed again and service-client connection events are ignored. The subscription is restored after the sound server restarts.
 
-## GNOME та блокування
+## GNOME and screen locking
 
-У меню **SESSION → Перейти до GNOME** є пояснення й підтвердження виходу. Після виходу виберіть GNOME на екрані входу GDM. Перехід завершує поточну сесію i3 — перед цим збережіть документи. GNOME → i3: звичайний вихід із GNOME й вибір i3 в GDM.
+The **SESSION → Switch to GNOME** menu item shows an explanation and asks for confirmation. After logging out pick GNOME on the GDM screen. Switching ends the current i3 session, so save your documents first. GNOME → i3: log out of GNOME normally and pick i3 in GDM.
 
-Налаштування GNOME не змінюються. У перевіреній конфігурації GNOME вже були англійська, українська, російська та Win+Пробіл; порядок GNOME залишено EN → UA → RU. У i3 використовується EN → RU → UA через Ctrl+Пробіл. Комбінацію перехоплює сам i3, а скрипт перемикає групу через XKB. Якщо фоновий менеджер вводу залишив лише одну розкладку, наступне перемикання відновлює всі три групи. Запуск цих команд поза i3 заблокований.
+GNOME settings are not changed. In the tested setup GNOME already had English, Ukrainian, Russian and Win+Space; the GNOME order is left as EN → UA → RU. i3 uses EN → RU → UA. The shortcuts are grabbed by i3 itself and the script switches the XKB group. If a background input manager left only one layout, the next switch restores all three groups. These commands refuse to run outside i3.
 
-Екран блокується після 10 хвилин бездіяльності через xss-lock/i3lock та перед сном із меню. Автоматичний сон не додається. Панелі, сповіщення та допоміжні процеси належать supervisor поточної i3-сесії й закриваються разом із нею. Перезапуск панелей не виконує глобальний `pkill`. Збірка не змінює GNOME dconf, SSH та display manager і не додає Picom у глобальний autostart. Пакети Debian можуть встановлювати власні стандартні служби й записи автозапуску.
+The screen locks after 10 minutes of inactivity through xss-lock/i3lock and before sleep from the menu. Automatic sleep is not added. The bars, notifications and helper processes belong to the supervisor of the current i3 session and are closed together with it. Restarting the bars does not run a global `pkill`. The bundle does not change GNOME dconf, SSH or the display manager and does not add Picom to the global autostart. Debian packages may install their own default services and autostart entries.
 
-## Приватність
+## Privacy
 
-[AGENTS.md](AGENTS.md) забороняє агентам читати SSH/GPG-ключі, токени, keyrings, браузерні профілі, `.env`, історію shell та повне середовище; додано виключення в `.gitignore`. Власні віджети працюють локально, без телеметрії, мережевих запитів і завантаження сторонніх плагінів. Назви аудіопристроїв не перетворюються на shell-команди.
+[AGENTS.md](AGENTS.md) forbids agents to read SSH/GPG keys, tokens, keyrings, browser profiles, `.env`, shell history and the full environment; matching exclusions are added to `.gitignore`. The bundled widgets run locally, without telemetry, network requests or third-party plugin downloads. Audio device names are never turned into shell commands.
 
-**AGENTS.md — правила для агентів цього проєкту, а не ізоляція програм на рівні ОС.** Він не забирає файловий доступ у довільних плагінів чи застосунків, які працюють від вашого користувача. Приватні ключі й секретні каталоги в цій роботі не читалися й не копіювалися.
+**AGENTS.md contains rules for agents working on this project; it is not OS-level isolation.** It does not take file access away from arbitrary plugins or applications running as your user. Private keys and secret directories were not read or copied while preparing this work.
 
-## Установлення та відновлення
+## Installation and restore
 
-Усі звичайні дії виконуються через `install.sh`:
-
-```sh
-./install.sh --check          # Перевірити комплект і залежності без змін
-./install.sh                  # Пакети, Picom 13, конфігурації
-./install.sh --no-animations  # Пакети й конфігурації без збирання Picom
-```
-
-Скрипт підтримує Debian 12. Він установлює відсутні програми, шрифти, агент графічної автентифікації та, за потреби, інструменти збирання Picom. Наявний PipeWire або PulseAudio зберігається; якщо жодного немає, встановлюється PipeWire/WirePlumber. GNOME та GDM повторно не встановлюються. Apt запускається із забороною видалення пакетів.
-
-Після цього внутрішній модуль `scripts/install_config.py` застосовує вісім явно перелічених файлів: `~/.config/i3/config`, п'ять файлів у `~/.config/i3/autumn/`, `~/.config/polybar/autumn.ini`, `~/.config/rofi/autumn.rasi`. Старі `polybar/config`, `rofi/config.rasi`, шпалери та shell startup-файли залишаються на місці. Конфігурації перевіряються до встановлення пакетів, якщо Python уже доступний.
-
-Оригінали змінених файлів зберігаються в `~/.local/state/i3-autumn/backups/<дата-час>/`. Точний шлях друкується після встановлення. Відновлення:
+All normal actions go through `install.sh`:
 
 ```sh
-./install.sh --restore ~/.local/state/i3-autumn/backups/ДАТА-ЧАС
+./install.sh --check          # Check the bundle and dependencies without changes
+./install.sh                  # Packages, Picom 13, configuration
+./install.sh --no-animations  # Packages and configuration without building Picom
 ```
 
-Замініть `ДАТА-ЧАС` на каталог, надрукований установником. Якщо файли змінено після встановлення, відновлення зупиниться, щоб не втратити ці правки. Резервні копії не видаляються автоматично. Відновлення стосується конфігурацій; установлені пакети й локальний Picom залишаються. Після відновлення ввійдіть у i3 заново.
+The script supports Debian 12. It installs missing programs, fonts, a graphical authentication agent and, if needed, the tools to build Picom. An existing PipeWire or PulseAudio is kept; if there is neither, PipeWire/WirePlumber is installed. GNOME and GDM are not reinstalled. Apt runs with package removal forbidden.
 
-Структура: `config/` — конфігурації, скрипти робочого столу та шпалери; `scripts/` — внутрішній модуль установлення; `tests/` — тести; `preview.py` та `.preview/` — попередній перегляд; `docs/` — знімок екрана; `AGENTS.md` і `CLAUDE.md` — правила та пам'ятка для агентів; `LICENSE` — MIT. Установник обчислює шляхи від власного розташування, тому папку проєкту можна переносити.
+Then the internal module `scripts/install_config.py` applies eight explicitly listed files: `~/.config/i3/config`, five files in `~/.config/i3/autumn/`, `~/.config/polybar/autumn.ini` and `~/.config/rofi/autumn.rasi`. Old `polybar/config`, `rofi/config.rasi`, wallpapers and shell startup files stay where they are. The configuration is validated before the packages are installed if Python is already available.
 
-## Анімації
+The originals of the changed files are stored in `~/.local/state/i3-autumn/backups/<date-time>/`. The exact path is printed after the installation. To restore:
 
-Конфігурація `~/.config/i3/autumn/picom.conf` задає появу зі збільшенням за 200 мс, закриття зі зменшенням до 90% за 220 мс, вертикальну появу/зникнення окремих вікон при перемиканні просторів, м'які тіні й кути 8 px. Перемикання фокуса, включно із вкладками i3 (Win+W), має плавний перехід за 180 мс. Для цього активне вікно непрозоре, а неактивне має непрозорість 98%: i3 залишає вкладки відображеними й піднімає активну, тому самі `show`/`hide` не спрацьовують. Зміна розкладки вікон (Win+W вкладки, Win+E поділ) плавно анімується за 160 мс (geometry-анімація Picom; вона діє й на перетягування/зміну розміру мишею). Панелі, меню Rofi, сповіщення та блокування виключено з ефектів.
+```sh
+./install.sh --restore ~/.local/state/i3-autumn/backups/DATE-TIME
+```
 
-Використовується GLX/VSync без фіксованого ліміту 60 Гц. Це не змінює роздільну здатність або частоту монітора. Для GNOME композитор не запускається.
+Replace `DATE-TIME` with the directory printed by the installer. If the files were changed after the installation, the restore stops so that those edits are not lost. Backups are never deleted automatically. The restore covers configuration only; installed packages and the local Picom stay. Log in to i3 again afterwards.
 
-На цій системі встановлений локальний Picom v13. Для керування ефектами відкрийте **Win+C → Анімації**. На іншій системі supervisor пропустить запуск відсутнього/старого композитора; звичайний установник збере потрібну версію.
+Layout: `config/` — configuration, desktop scripts and wallpaper; `scripts/` — internal installer module and the optional terminal profile; `tests/` — tests; `preview.py` and `.preview/` — preview rendering; `docs/` — screenshot; `AGENTS.md` and `CLAUDE.md` — rules and notes for agents; `LICENSE` — MIT; `README.uk.md` — Ukrainian version of this file. The installer computes paths from its own location, so the project folder can be moved.
 
-Підготовлений установник збирає [офіційний Picom v13](https://github.com/yshui/picom/releases/tag/v13) із фіксованого commit `d87a5ba3af7a9ee3c4e040ee29b2dea7e9e46317` у `~/.local/bin/picom-autumn`. Залежності встановлює через Debian apt із sudo, сам композитор збирає від звичайного користувача. Приватну сучасну libconfig збирає через зафіксований upstream wrap, не замінюючи системну бібліотеку. Глобальний autostart не додається.
+## Animations
 
-Збирання входить у звичайний запуск `./install.sh`. Ключ `--no-animations` лише пропускає збирання: якщо сучасний Picom уже встановлено, supervisor зможе його запустити. Вимкнення ефектів доступне в меню анімацій.
+`~/.config/i3/autumn/picom.conf` defines a 200 ms scale-in on open, a 220 ms close shrinking to 90%, a vertical slide for individual windows when switching workspaces, soft shadows and 8 px corners. Focus changes, including i3 tabs (Win+W), get a smooth 180 ms transition. Windows are 15% translucent (opacity 0.85) with a blurred background (`dual_kawase`); an unfocused window is slightly more transparent (0.83), and that difference is what triggers the transition: i3 keeps the tabs mapped and raises the active one, so `show`/`hide` alone do not fire. Layout changes (Win+W tabs, Win+E split) are animated for 160 ms (Picom's geometry animation, which also applies to dragging and resizing with the mouse). Bars, Rofi menus, notifications and the screen locker are excluded from the effects.
 
-Після успішного встановлення ввійдіть у i3 заново, щоб завантажити оновлений supervisor. Скрипт не завершує сесію. Якщо композитор аварійно завершується, він повідомляє про це й не створює цикл перезапусків. Для повернення без ефектів є пункт вимкнення в меню анімацій.
+GLX/VSync is used with no fixed 60 Hz limit. This does not change the monitor's resolution or refresh rate. The compositor is not started for GNOME.
 
-**Перевірено після оновлення:** усі 55 автотестів успішні; синтаксис i3 й Bash перевірено. Справжній Picom v13 запущено у вкладеній ізольованій X11-сесії: конфігурація прочитана, у журналі є запуск анімацій закриття та зміни фокуса, у зображенні є проміжні кадри переходу вкладок. Параметри відповідають [офіційному опису v13](https://raw.githubusercontent.com/yshui/picom/v13/man/picom.1.adoc). Інтеграційні тести установника використовують підставні apt/build-команди; повторне повне встановлення пакетів не виконувалося.
+Open **Win+C → Анімації** (Animations) to control the effects. On a system with a missing or old compositor the supervisor skips starting it; the regular installer builds the required version.
 
-## Монітор і три розкладки
+The installer builds the [official Picom v13](https://github.com/yshui/picom/releases/tag/v13) from the pinned commit `d87a5ba3af7a9ee3c4e040ee29b2dea7e9e46317` into `~/.local/bin/picom-autumn`. Dependencies are installed through Debian apt with sudo; the compositor itself is built as a regular user. A private modern libconfig is built through the pinned upstream wrap without replacing the system library. No global autostart is added.
 
-Збережений профіль GNOME: **MAG275CQRF-QD**, DisplayPort **DP-2**, **2560×1440**, **169,885 Гц**, масштаб **1 / 100%**. Попередня жива перевірка XRandR показувала цей самий режим; це оновлення не змінює параметри монітора.
+The build is part of the normal `./install.sh` run. The `--no-animations` flag only skips the build: if a modern Picom is already installed, the supervisor can still start it. Effects can be turned off in the animations menu.
 
-i3 використовує фізичні позиції символів із першої розкладки й активує прив'язки в усіх групах. Виконання кожної окремої команди окремо не перевірялося. Гарячі клавіші всередині застосунків залежать від самих застосунків.
+After a successful installation log in to i3 again to load the updated supervisor. The script does not end the session. If the compositor crashes, it reports it and does not create a restart loop. The animations menu has an item to go back to a no-effects mode.
 
-## Перевірки та знайдені проблеми
+**Verification:** all automated tests pass; i3 and Bash syntax is checked. The real Picom v13 was started in a nested, isolated X11 session: the configuration was read, the log shows the close and focus-change animations starting, and the image has intermediate frames of the tab transition. The settings follow the [official v13 manual](https://raw.githubusercontent.com/yshui/picom/v13/man/picom.1.adoc). The installer integration tests use stub apt/build commands; a full package reinstall was not repeated.
 
-Перевірено синтаксис на локальному i3 4.22; Polybar/Rofi і перемикання трьох мов запущено у вкладеній ізольованій X11-сесії Xephyr. [Знімок прев’ю](docs/screenshot.png) показує реальні шпалери, панель і оформлення меню з демонстраційними пунктами. Розкладки фактично пройшли цикл груп 0 → 1 → 2 → 0.
+## Layouts and keys
 
-Автотести перевіряють маршрутизацію аудіо, monitor-джерела, відключення пристроїв, скасування меню, обмеження гучності, захист команд поза i3, підтвердження живлення, lifecycle, резервні копії та відновлення. Живе перемикання ваших аудіопотоків, блокування, сон, перезапуск комп'ютера й вихід із поточної GNOME навмисно не виконувалися.
+i3 uses the physical key positions of the first layout and activates the bindings in every group. Each individual command was not verified separately. Shortcuts inside applications depend on the applications themselves.
+
+## Checks and known issues
+
+The syntax was checked with a local i3 4.22; Polybar/Rofi and switching between the three languages were run in a nested, isolated Xephyr X11 session. The [preview screenshot](docs/screenshot.png) shows the real wallpaper, bar and menu styling with demo entries. The layouts actually went through the group cycle 0 → 1 → 2 → 0.
+
+The automated tests cover audio routing, monitor sources, device disconnects, menu cancellation, volume limits, command protection outside i3, power confirmation, lifecycle, backups and restore. Live switching of your audio streams, locking, sleep, rebooting and logging out of the current GNOME session were deliberately not performed.
 
 ```sh
 python3 -m unittest discover -s tests -v
@@ -138,27 +142,27 @@ i3 -C -c config/i3/config
 python3 preview.py
 ```
 
-Для необов'язкового `preview.py` додатково потрібні `xserver-xephyr` та `imagemagick`; на перевіреній системі вони вже встановлені. Установник включає залежності робочого столу, але не ці інструменти розробки.
+The optional `preview.py` additionally needs `xserver-xephyr` and `imagemagick`. The installer includes the desktop dependencies but not these development tools.
 
-У старому конфігу були Win+Пробіл для фокуса, відсутній `picom`, команди живлення через відсутній `doas`, некоректний hex-колір Polybar і глобальний `pkill polybar`. Ці місця замінено. Автозапуск Telegram і Guake зі старого i3-конфіга прибрано; свій автозапуск і особисті налаштування можна додати у `~/.config/i3/local.conf` (його підключає основний конфіг, установник цей файл не створює й не перезаписує); застосунки доступні через меню, а висувний термінал — через Win+F12.
+The old config had Win+Space for focus, a missing `picom`, power commands through a missing `doas`, an invalid Polybar hex colour and a global `pkill polybar`. These places were replaced. The Telegram and Guake autostart of the old i3 config was removed; add your own autostart and personal settings to `~/.config/i3/local.conf` (the main config includes it; the installer never creates or overwrites it). Applications are available through the menu and the drop-down terminal through Win+F12.
 
-Композиція використовує непрозорі поверхні й працює без picom. Шпалери створено за допомогою imagegen; початковий файл має 1672×941 px і масштабується до монітора. Для налаштувань використано [офіційний посібник i3](https://i3wm.org/docs/userguide.html), [документацію Polybar xkeyboard](https://github.com/polybar/polybar/wiki/Module:-xkeyboard) та [довідку GNOME щодо розкладок](https://help.gnome.org/gnome-help/keyboard-layouts.html).
+The composition uses opaque surfaces and works without picom. The wallpaper was created with imagegen; the source file is 1672×941 px and is scaled to the monitor. The settings follow the [official i3 user guide](https://i3wm.org/docs/userguide.html), the [Polybar xkeyboard documentation](https://github.com/polybar/polybar/wiki/Module:-xkeyboard) and the [GNOME keyboard layouts help](https://help.gnome.org/gnome-help/keyboard-layouts.html).
 
-## Тема термінала (необов'язково)
+## Terminal theme (optional)
 
-Кольори gnome-terminal зберігаються в dconf, тому профіль «Autumn» встановлюється окремою явною командою, а не через `install.sh`:
+gnome-terminal colours are stored in dconf, so the «Autumn» profile is installed with a separate, explicit command rather than through `install.sh`:
 
 ```sh
-python3 scripts/terminal_profile.py          # додати профіль, типовий не змінюється
-python3 scripts/terminal_profile.py remove   # видалити профіль
+python3 scripts/terminal_profile.py          # add the profile, the default one is untouched
+python3 scripts/terminal_profile.py remove   # remove the profile
 ```
 
-`Mod+Return` і F12 відкривають термінал із цим профілем (`--profile=Autumn`); якщо його не встановлено, gnome-terminal використовує типовий.
+`Mod+Return` and F12 open the terminal with this profile (`--profile=Autumn`); if it is not installed, gnome-terminal uses the default one.
 
-## Особисті налаштування
+## Personal settings
 
-Основний i3-конфіг підключає `~/.config/i3/local.conf`. Додайте туди власний автозапуск (`exec ...`) та прив'язки. Установник цей файл не створює й не перезаписує.
+The main i3 config includes `~/.config/i3/local.conf`. Put your own autostart (`exec ...`) and bindings there. The installer never creates or overwrites this file.
 
-## Ліцензія
+## License
 
 [MIT](LICENSE).
