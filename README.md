@@ -55,7 +55,7 @@ Press **Win+C** to open the control centre or **Win+F1** to see the key bindings
 | Print | Select a screen region in Flameshot |
 | Win+Shift+C / Win+Shift+R | Reload the config / restart i3 keeping windows |
 
-Windows can be dragged with the mouse while holding Win; the right button with Win resizes them. The old j/k/l/; navigation keys are kept. Urgent windows no longer steal focus automatically. The outer gap is 16 px in normal mode, in tabs and for a single window; the gap between neighbouring windows is 12 px. Fullscreen uses the whole screen.
+Windows can be dragged with the mouse while holding Win; the right button with Win resizes them. The old j/k/l/; navigation keys are kept. Focus follows the mouse pointer. Urgent windows no longer steal focus automatically. The outer gap is 16 px in normal mode, in tabs and for a single window; the gap between neighbouring windows is 12 px. Fullscreen uses the whole screen.
 
 ## Bar and audio
 
