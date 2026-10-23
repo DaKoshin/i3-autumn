@@ -110,8 +110,10 @@ def main():
         groups = [group()]
         for _ in range(3):
             mod = xlib.XKeysymToKeycode(connection, 0xffe3)
+            alt = xlib.XKeysymToKeycode(connection, 0xffe9)
             space = xlib.XKeysymToKeycode(connection, 0x20)
-            for key, pressed in ((mod, 1), (space, 1), (space, 0), (mod, 0)):
+            # Ctrl+Alt+Space cycles EN -> RU -> UA (Ctrl+Space returns to the previous layout).
+            for key, pressed in ((mod, 1), (alt, 1), (space, 1), (space, 0), (alt, 0), (mod, 0)):
                 xtst.XTestFakeKeyEvent(connection, key, pressed, 0)
             xlib.XFlush(connection)
             time.sleep(.2)
@@ -123,7 +125,7 @@ def main():
         # Render the actual theme, with non-executing sample menu entries.
         menu = spawn(["rofi", "-config", str(ROOT / "config/rofi/autumn.rasi"),
                       "-dmenu", "-p", "Осінній простір", "-mesg",
-                      "Ctrl+Space · EN / RU / UA    |    Win+F1 · усі клавіші"],
+                      "Ctrl+Space · попередня мова    |    Win+F1 · усі клавіші"],
                      env, "rofi", stdin=subprocess.PIPE, text=True)
         menu.stdin.write("Застосунки\nВікна та тайлінг\nВихід звуку\nМікрофон\nГарячі клавіші\nСесія i3 / GNOME\n")
         menu.stdin.close()
