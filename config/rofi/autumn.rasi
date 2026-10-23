@@ -1,0 +1,70 @@
+configuration {
+    modi: "drun,window";
+    font: "DejaVu Sans 12";
+    show-icons: true;
+    icon-theme: "Adwaita";
+    display-drun: "Застосунки";
+    display-window: "Вікна";
+    drun-display-format: "{name}";
+    matching: "fuzzy";
+    sorting-method: "fzf";
+    sort: true;
+    scroll-method: 1;
+    click-to-exit: true;
+}
+* {
+    bg: #211d19;
+    bg-alt: #2c251f;
+    fg: #e5d5c3;
+    muted: #a89785;
+    amber: #e7b56d;
+    copper: #cc915f;
+    background-color: transparent;
+    text-color: @fg;
+    border-color: #514030;
+    margin: 0px;
+    padding: 0px;
+    spacing: 0px;
+}
+window {
+    width: 700px;
+    location: center;
+    anchor: center;
+    background-color: @bg;
+    border: 2px;
+    border-radius: 12px;
+    padding: 24px;
+}
+mainbox { children: [ inputbar, message, listview ]; spacing: 16px; }
+inputbar {
+    children: [ prompt, entry ];
+    spacing: 18px;
+    padding: 14px 16px;
+    background-color: @bg-alt;
+    border-radius: 6px;
+}
+prompt { text-color: @amber; }
+entry { placeholder: "Пошук…"; placeholder-color: @muted; }
+message { padding: 4px 2px; border: 0px; }
+textbox { text-color: @muted; }
+listview {
+    border: 0px;
+    lines: 8;
+    columns: 1;
+    fixed-height: false;
+    scrollbar: false;
+    spacing: 5px;
+}
+element { padding: 12px 14px; spacing: 12px; border-radius: 6px; }
+element normal.normal { background-color: transparent; text-color: @fg; }
+element alternate.normal { background-color: transparent; text-color: @fg; }
+element normal.active { background-color: transparent; text-color: @copper; }
+element alternate.active { background-color: transparent; text-color: @copper; }
+element normal.urgent { background-color: transparent; text-color: #bf6e5d; }
+element alternate.urgent { background-color: transparent; text-color: #bf6e5d; }
+element selected.normal { background-color: @bg-alt; text-color: @amber; }
+element selected.active { background-color: @bg-alt; text-color: @amber; }
+element selected.urgent { background-color: #633c32; }
+element-icon { size: 24px; }
+element-text { vertical-align: 0.5; text-color: inherit; }
+error-message { background-color: @bg; padding: 20px; }

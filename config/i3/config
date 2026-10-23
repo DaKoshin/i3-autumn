@@ -1,0 +1,164 @@
+# AUTUMN / i3 4.22+ — session-local desktop
+# Win+F1: shortcuts. Win+C: control centre. Ctrl+Space: previous language (like macOS), Ctrl+Alt+Space: EN → RU → UA.
+set $mod Mod4
+set $desktop python3 ~/.config/i3/autumn/desktop.py
+set $audio python3 ~/.config/i3/autumn/audio.py
+set $rofi rofi -config ~/.config/rofi/autumn.rasi
+
+font pango:DejaVu Sans 10
+floating_modifier $mod
+tiling_drag modifier titlebar
+default_border pixel 2
+default_floating_border pixel 2
+hide_edge_borders smart
+gaps inner 12
+gaps outer 4
+# Keep the same screen-edge spacing for split, tabbed and single windows.
+smart_gaps off
+smart_borders on
+workspace_layout default
+workspace_auto_back_and_forth yes
+focus_follows_mouse no
+mouse_warping none
+focus_on_window_activation smart
+focus_wrapping workspace
+popup_during_fullscreen smart
+
+# border, background, text, indicator, child border
+client.focused          #cc915f #30261f #f0dfc9 #e7b56d #cc915f
+client.focused_inactive #42372d #27211c #c6b29b #76634f #42372d
+client.unfocused        #302a24 #211d19 #a89785 #42372d #302a24
+client.urgent           #bf6e5d #633c32 #fff1df #bf6e5d #bf6e5d
+client.placeholder      #302a24 #181614 #a89785 #302a24 #302a24
+client.background       #181614
+
+bindsym $mod+Return exec --no-startup-id $desktop terminal
+bindsym $mod+d exec --no-startup-id $rofi -show drun
+bindsym $mod+Tab exec --no-startup-id $rofi -show window
+bindsym $mod+c exec --no-startup-id $desktop menu
+bindsym $mod+F1 exec --no-startup-id $desktop help
+bindsym $mod+F12 exec --no-startup-id $desktop scratchpad
+bindsym --release Ctrl+space exec --no-startup-id $desktop keyboard-prev
+bindsym --release Ctrl+Mod1+space exec --no-startup-id $desktop keyboard-next
+bindsym $mod+p exec --no-startup-id $audio menu
+bindsym $mod+Ctrl+p exec --no-startup-id $audio outputs
+bindsym $mod+Ctrl+Shift+p exec --no-startup-id $audio inputs
+bindsym $mod+Ctrl+l exec --no-startup-id $desktop lock
+bindsym $mod+Shift+e exec --no-startup-id $desktop power
+bindsym $mod+0 exec --no-startup-id $desktop power
+bindsym $mod+q kill
+bindsym $mod+Shift+q kill
+
+# The original j/k/l/; navigation remains available alongside arrow keys.
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+bindsym $mod+h split h
+bindsym $mod+v split v
+bindsym $mod+backslash split toggle
+bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+f fullscreen toggle
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+Shift+t floating toggle
+bindsym $mod+t focus mode_toggle
+bindsym $mod+Shift+s sticky toggle
+bindsym $mod+a focus parent
+bindsym $mod+Shift+a focus child
+bindsym $mod+b workspace back_and_forth
+bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
+bindsym $mod+Ctrl+Right workspace next
+bindsym $mod+Ctrl+Left workspace prev
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+bindsym $mod+g gaps inner current toggle 12
+
+set $ws1 "1:home"
+set $ws2 "2:web"
+set $ws3 "3:code"
+set $ws4 "4:chat"
+set $ws5 "5:media"
+set $ws6 "6:files"
+set $ws7 "7:extra"
+set $ws8 "8:quiet"
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+Ctrl+1 move container to workspace $ws1
+bindsym $mod+Ctrl+2 move container to workspace $ws2
+bindsym $mod+Ctrl+3 move container to workspace $ws3
+bindsym $mod+Ctrl+4 move container to workspace $ws4
+bindsym $mod+Ctrl+5 move container to workspace $ws5
+bindsym $mod+Ctrl+6 move container to workspace $ws6
+bindsym $mod+Ctrl+7 move container to workspace $ws7
+bindsym $mod+Ctrl+8 move container to workspace $ws8
+bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
+
+bindsym $mod+r mode "resize | arrows · Enter / Esc"
+mode "resize | arrows · Enter / Esc" {
+    bindsym --release Ctrl+space exec --no-startup-id $desktop keyboard-prev
+    bindsym --release Ctrl+Mod1+space exec --no-startup-id $desktop keyboard-next
+    bindsym Left resize shrink width 5 px or 5 ppt
+    bindsym Right resize grow width 5 px or 5 ppt
+    bindsym Up resize shrink height 5 px or 5 ppt
+    bindsym Down resize grow height 5 px or 5 ppt
+    bindsym j resize shrink width 5 px or 5 ppt
+    bindsym semicolon resize grow width 5 px or 5 ppt
+    bindsym l resize shrink height 5 px or 5 ppt
+    bindsym k resize grow height 5 px or 5 ppt
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="About"] floating enable
+for_window [class="(?i)pavucontrol"] floating enable, resize set 1000 680, move position center
+for_window [class="(?i)nm-connection-editor"] floating enable
+for_window [class="(?i)gnome-calculator"] floating enable
+for_window [class="(?i)gcr-prompter"] floating enable
+for_window [class="AutumnScratchpad"] floating enable, resize set 80 ppt 65 ppt, move position center, move scratchpad
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id $audio volume-up
+bindsym XF86AudioLowerVolume exec --no-startup-id $audio volume-down
+bindsym XF86AudioMute exec --no-startup-id $audio mute-output
+bindsym XF86AudioMicMute exec --no-startup-id $audio mute-input
+bindsym --release Print exec --no-startup-id flameshot gui
+bindsym --release Shift+Print exec --no-startup-id flameshot gui
+bindsym $mod+F2 exec --no-startup-id sensible-browser
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+# One supervisor owns this session's bar and idle locker. It exits with i3.
+exec_always --no-startup-id $desktop session-start
+# A reload must also repair the keyboard map if a session daemon replaced it.
+exec_always --no-startup-id $desktop keyboard-setup
+
+# Personal settings and autostart (exec lines, extra bindings). The installer
+# never creates or overwrites this file; a missing file is ignored.
+include ~/.config/i3/local.conf

@@ -1,0 +1,40 @@
+[global]
+    font = DejaVu Sans 10
+    width = 360
+    origin = top-right
+    offset = 18x56
+    notification_limit = 4
+    padding = 16
+    horizontal_padding = 18
+    frame_width = 2
+    frame_color = "#514030"
+    separator_color = frame
+    corner_radius = 8
+    background = "#211d19"
+    foreground = "#e5d5c3"
+    format = "<b>%s</b>\n%b"
+    markup = full
+    word_wrap = yes
+    ellipsize = end
+    icon_position = left
+    max_icon_size = 40
+    show_indicators = yes
+    mouse_left_click = close_current
+    mouse_middle_click = do_action
+    mouse_right_click = close_all
+
+[urgency_low]
+    background = "#211d19"
+    foreground = "#a89785"
+    timeout = 4
+
+[urgency_normal]
+    background = "#211d19"
+    foreground = "#e5d5c3"
+    timeout = 7
+
+[urgency_critical]
+    background = "#39251f"
+    foreground = "#f0dfc9"
+    frame_color = "#bf6e5d"
+    timeout = 0

@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.preview/
+backups/
+*.log
+.env
+.env.*
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+credentials*
+.ssh/
+.gnupg/
+.backup/
+installation.json
