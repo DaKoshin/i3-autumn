@@ -14,7 +14,7 @@ default_border pixel 2
 default_floating_border pixel 2
 hide_edge_borders smart
 gaps inner 6
-gaps outer 10
+gaps outer 2
 # Keep the same screen-edge spacing for split, tabbed and single windows.
 smart_gaps off
 smart_borders on
