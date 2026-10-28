@@ -163,6 +163,10 @@ python3 scripts/terminal_profile.py remove   # remove the profile
 
 The main i3 config includes `~/.config/i3/local.conf`. Put your own autostart (`exec ...`) and bindings there. The installer never creates or overwrites this file.
 
+## Login screen (LightDM, optional)
+
+A custom Autumn-styled greeter: LightDM stays the engine (PAM, X server, session start) while the login screen is `greeter/autumn_greeter.py`. Preview without LightDM: `python3 greeter/autumn_greeter.py --demo` (password `autumn`, no session is started). Install with `scripts/install_greeter.sh` (check only) or `--apply` (needs sudo). GDM is untouched until you run `sudo dpkg-reconfigure lightdm` yourself.
+
 ## License
 
 [MIT](LICENSE).

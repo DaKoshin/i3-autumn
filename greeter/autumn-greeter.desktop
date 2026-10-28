@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Autumn Greeter
+Comment=Екран входу в стилі Autumn
+Exec=/usr/local/lib/autumn-greeter/autumn_greeter.py
+Type=Application
+X-Ubuntu-Gettext-Domain=autumn-greeter

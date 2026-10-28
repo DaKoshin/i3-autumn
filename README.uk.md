@@ -161,6 +161,10 @@ python3 scripts/terminal_profile.py remove   # видалити профіль
 
 Основний i3-конфіг підключає `~/.config/i3/local.conf`. Додайте туди власний автозапуск (`exec ...`) та прив'язки. Установник цей файл не створює й не перезаписує.
 
+## Екран входу (LightDM, необов'язково)
+
+Власний greeter у стилі Autumn: LightDM лишається «рушієм» (PAM, X-сервер, запуск сесії), а екран входу — `greeter/autumn_greeter.py`. Перегляд без LightDM: `python3 greeter/autumn_greeter.py --demo` (пароль `autumn`, сесія не запускається). Установлення: `scripts/install_greeter.sh` (лише перевірка) і `--apply` (потрібен sudo). GDM не змінюється, поки ви самі не виконаєте `sudo dpkg-reconfigure lightdm`.
+
 ## Ліцензія
 
 [MIT](LICENSE).
