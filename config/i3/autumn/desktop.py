@@ -492,6 +492,8 @@ class Supervisor:
             self.spawn(["xss-lock", "--transfer-sleep-lock", "--", "i3lock", "--nofork", "--color", "1c1917"])
         if shutil.which("nm-applet"):
             self.spawn(["nm-applet"])
+        if shutil.which("flameshot"):
+            self.spawn(["flameshot"])
         if shutil.which("dunst"):
             self.spawn(["dunst", "-conf", str(CONFIG / "i3/autumn/dunstrc")])
         polkit_agent = Path("/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1")
